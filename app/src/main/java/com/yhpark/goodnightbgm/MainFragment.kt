@@ -66,6 +66,9 @@ class MainFragment : Fragment() {
 
             imageButton.setOnClickListener {
                 if (mediaPlayer.isPlaying) {
+                    timer.cancel()
+                    mediaPlayer.stop()
+
                     activity!!.finishAffinity()
                 } else {
                     audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 2, FLAG_REMOVE_SOUND_AND_VIBRATE)
