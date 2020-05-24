@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <DropDownPreference
+        app:entries="@array/bgm_list"
+        app:entryValues="@array/bgm_list"
+        app:key="bgm"
+        app:title="BGM Select"
+        app:useSimpleSummaryProvider="true" />
+
+</PreferenceScreen>
