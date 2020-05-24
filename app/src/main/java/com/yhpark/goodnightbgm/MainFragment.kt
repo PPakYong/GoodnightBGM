@@ -39,10 +39,9 @@ class MainFragment : Fragment() {
         preVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
 
         mediaPlayer = MediaPlayer.create(activity, getBgm())
+        mediaPlayer.isLooping = true
 
         mediaPlayer.setOnPreparedListener {
-            tvRemainTime.text = convertDuration(mediaPlayer.duration)
-            progressBar.max = mediaPlayer.duration / 1000
 
             val timer =
                 object : CountDownTimer(1000 * 60 * 60 * 2/*mediaPlayer.duration.toLong()*/, 100) {
@@ -57,10 +56,6 @@ class MainFragment : Fragment() {
                     override fun onTick(millisUntilFinished: Long) {
                         tvCurrentTime.text =
                             SimpleDateFormat("HH:mm:ss").format(System.currentTimeMillis())
-                        tvRemainTime.text =
-                            convertDuration(mediaPlayer.duration - mediaPlayer.currentPosition)
-
-                        progressBar.progress = mediaPlayer.currentPosition / 1000
                     }
                 }
 
