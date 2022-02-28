@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import java.text.SimpleDateFormat
 
 class MainFragment : Fragment() {
+    //pr test
     lateinit var mediaPlayer: MediaPlayer
     var preVolume: Int = 0
 
