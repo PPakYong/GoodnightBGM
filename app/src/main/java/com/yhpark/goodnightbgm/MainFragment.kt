@@ -115,4 +115,14 @@ class MainFragment : Fragment() {
         val audioManager = requireContext().getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, preVolume, FLAG_REMOVE_SOUND_AND_VIBRATE)
     }
+
+    private fun convertDurationReverse(duration: CharSequence): Int {
+        val durations = duration.split(":")
+
+        val hours = durations[0]
+        val minutes = durations[1]
+        val seconds = durations[2]
+
+        return (Integer.valueOf(hours) * (1000 * 60 * 60)) + (Integer.valueOf(minutes) * (1000 * 60)) + (Integer.valueOf(seconds) * 1000)
+    }
 }
